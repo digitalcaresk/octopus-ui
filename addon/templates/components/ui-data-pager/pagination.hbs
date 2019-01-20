@@ -1,0 +1,18 @@
+<div class="d-flex align-items-center">
+    <span class="mr-4">
+        Zobrazujem: <b>{{this.showingFrom}} &ndash; {{this.showingTo}}</b>
+    </span>
+
+    <ul class="pagination mb-0">
+        <li class="page-item">
+            <button class="page-link" type="button" disabled={{this.isFirstPage}} {{action goToPreviousPage}}>
+                <i class="far fa-angle-double-left"></i>
+            </button>
+        </li>
+        <li class="page-item">
+            <button class="page-link" type="button" disabled={{this.isLastPage}} {{action goToNextPage}}>
+                <i class="far fa-angle-double-right"></i>
+            </button>
+        </li>
+    </ul>
+</div>

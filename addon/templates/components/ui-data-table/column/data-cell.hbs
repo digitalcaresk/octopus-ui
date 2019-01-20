@@ -1,0 +1,5 @@
+{{#if hasBlock}}
+    {{yield (hash row=@row body=(component "blank-component")) @row}}
+{{else}}
+    {{get @row @property}}
+{{/if}}

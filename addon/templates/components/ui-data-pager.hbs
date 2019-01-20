@@ -1,0 +1,6 @@
+{{yield
+        (hash
+                content=this.pagedContent
+                pagination=(component "ui-data-pager/pagination" page=this.page count=@content.length itemsPerPage=this.itemsPerPage)
+        )
+}}

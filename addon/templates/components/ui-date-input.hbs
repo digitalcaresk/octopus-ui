@@ -1,0 +1,15 @@
+<div class="input-group">
+    {{ember-flatpickr
+            date=(readonly @value)
+            enableTime=@enableTime
+            dateFormat=this.dateFormat
+            time_24hr=true
+            onChange=(action updateValue)
+            classNames="form-control"}}
+
+    <div class="input-group-append">
+        <div class="input-group-text">
+            <i class="far fa-calendar-alt"></i>
+        </div>
+    </div>
+</div>

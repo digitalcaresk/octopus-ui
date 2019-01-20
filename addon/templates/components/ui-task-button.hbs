@@ -1,0 +1,5 @@
+{{#if @task.isRunning}}
+    <i class="fas fa-circle-notch fa-spin"></i>
+{{else}}
+    {{yield}}
+{{/if}}

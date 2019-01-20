@@ -1,0 +1,55 @@
+{{#ui-data-sorter content=@content as |sorter|}}
+    {{#ui-data-pager itemsPerPage=this.itemsPerPage content=sorter.content as |pager|}}
+        <thead>
+        <tr>
+            {{yield (hash
+                            column=(component "ui-data-table/column/header-cell")
+                            sortableColumn=(component "ui-data-table/column/sortable-header-cell" onSort=sorter.sortContent)
+                            selectableColumn=(component "ui-data-table/column/selectable-header-cell")
+                    )}}
+        </tr>
+
+        {{#if this.columnFilters}}
+            <tr>
+                {{yield (hash
+                                column=(component "ui-data-table/column/filter-cell")
+                                sortableColumn=(component "ui-data-table/column/filter-cell")
+                                selectableColumn=(component "ui-data-table/column/filter-cell")
+                        )}}
+            </tr>
+        {{/if}}
+        </thead>
+
+        <tbody>
+        {{#each pager.content as |row|}}
+            {{#ui-data-table/row row=row}}
+                {{yield (hash
+                                column=(component "ui-data-table/column/data-cell" row=row)
+                                sortableColumn=(component "ui-data-table/column/data-cell" row=row)
+                                selectableColumn=(component "ui-data-table/column/selectable-data-cell" row=row)
+                        )}}
+            {{/ui-data-table/row}}
+        {{else}}
+            <tr>
+                <td colspan="999" class="text-center">
+                    Nebol nájdený žiaden záznam.
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <td colspan="999">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        {{inflect @content.length "položka" "položky" "položiek"}}
+                    </div>
+
+                    {{pager.pagination}}
+                </div>
+            </td>
+        </tr>
+        </tfoot>
+    {{/ui-data-pager}}
+{{/ui-data-sorter}}

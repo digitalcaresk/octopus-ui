@@ -1,0 +1,5 @@
+{{#if hasBlock}}
+    {{yield (hash header=(component "blank-component"))}}
+{{else}}
+    {{@name}}
+{{/if}}
