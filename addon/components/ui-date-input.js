@@ -6,6 +6,8 @@ export default Component.extend({
     layout,
     tagName: '',
 
+    minDate: null,
+
     dateFormat: computed('enableTime', function() {
         return this.enableTime ? 'H:i d.m.Y' : 'd.m.Y';
     }),
