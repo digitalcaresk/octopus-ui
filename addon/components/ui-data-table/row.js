@@ -6,7 +6,8 @@ export default Component.extend({
     layout,
 
     tagName: 'tr',
-    classNameBindings: ['selected:table-primary'],
+    classNameBindings: ['rowClass', 'selected:table-primary'],
 
-    selected: computed.equal('row.selected', true)
+    selected: computed.equal('row.selected', true),
+    rowClass: computed.alias('row.rowClass')
 });
