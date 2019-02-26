@@ -9,6 +9,14 @@ export default TextField.extend({
 
     },
 
+    onKeyPress() {
+
+    },
+
+    keyPress() {
+        this.onKeyPress();
+    },
+
     valueObserver: observer('value', function () {
         schedule('actions', this, function () {
             this.onChange();
