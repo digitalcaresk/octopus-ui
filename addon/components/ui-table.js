@@ -3,5 +3,9 @@ import Component from '@ember/component';
 export default Component.extend({
     tagName: 'table',
 
-    classNames: ['table', 'table-hover', 'table-striped', 'mb-0']
+    striped: true,
+    hover: true,
+
+    classNames: ['table', 'mb-0'],
+    classNameBindings: ['hover:table-hover', 'striped:table-striped']
 });
