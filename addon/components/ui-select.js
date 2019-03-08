@@ -2,13 +2,14 @@ import Component from '@ember/component';
 import {observer} from '@ember/object';
 import {run} from '@ember/runloop';
 import layout from '../templates/components/ui-select';
-import { typeOf } from '@ember/utils';
+import {typeOf} from '@ember/utils';
+import {computed} from '@ember/object';
 
 export default Component.extend({
     layout,
 
     tagName: 'select',
-    classNameBindings: ['tick:show-tick'],
+    classNameBindings: ['tick:show-tick', 'isInvalid'],
     attributeBindings: [
         'disabled',
         'multiple',
@@ -21,6 +22,12 @@ export default Component.extend({
         'actionsBox:data-actions-box',
         'style:data-style'
     ],
+
+    classNames: 'form-control',
+
+    errors: null,
+
+    isInvalid: computed.notEmpty('errors'),
 
     /**
      * Append the select to a specific element, e.g. container: 'body'
@@ -106,7 +113,7 @@ export default Component.extend({
         this._pickerCall(this._pickerRefresh);
     }),
 
-    updateOptions: observer('options.[]', function() {
+    updateOptions: observer('options.[]', function () {
         this._pickerCall(this._pickerRefresh);
     }),
 
