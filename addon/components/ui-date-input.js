@@ -8,14 +8,22 @@ export default Component.extend({
 
     minDate: null,
     disabled: false,
+    mode: 'single',
 
     dateFormat: computed('enableTime', function() {
         return this.enableTime ? 'H:i d.m.Y' : 'd.m.Y';
     }),
 
     updateValue(selectedDates) {
-        let [date] = selectedDates;
+        if (this.isInRangeMode) {
+            this.set('value', selectedDates);
+        } else {
+            console.log(arguments);
+            let [date] = selectedDates;
 
-        this.set('value', date);
-    }
+            this.set('value', date);
+        }
+    },
+
+    isInRangeMode: computed.alias('mode', 'range')
 });
