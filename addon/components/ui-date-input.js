@@ -9,6 +9,7 @@ export default Component.extend({
     minDate: null,
     disabled: false,
     mode: 'single',
+    enable: [],
 
     dateFormat: computed('enableTime', function() {
         return this.enableTime ? 'H:i d.m.Y' : 'd.m.Y';
@@ -18,7 +19,6 @@ export default Component.extend({
         if (this.isInRangeMode) {
             this.set('value', selectedDates);
         } else {
-            console.log(arguments);
             let [date] = selectedDates;
 
             this.set('value', date);
