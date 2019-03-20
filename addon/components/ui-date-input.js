@@ -25,5 +25,5 @@ export default Component.extend({
         }
     },
 
-    isInRangeMode: computed.alias('mode', 'range')
+    isInRangeMode: computed.equal('mode', 'range')
 });
