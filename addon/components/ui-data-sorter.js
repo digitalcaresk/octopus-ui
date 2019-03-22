@@ -7,7 +7,7 @@ export default Component.extend({
 
     tagName: '',
 
-    sortBy: 'id',
+    sortBy: 'updatedAt',
     sortDirection: 'desc',
 
     sortingDefinition: computed('sortBy', 'sortDirection', function() {
