@@ -23,14 +23,14 @@ export default Service.extend({
     },
 
     stateFor(component) {
-        let routeName = this.router.currentRouteName,
+        let routeName = this.router.currentURL,
             path = `${routeName}@${component.componentName}`;
 
         return this.state[path] || null;
     },
 
     persistComponents() {
-        let routeName = this.router.currentRouteName,
+        let routeName = this.router.currentURL,
             state = this.state;
 
         this.components.forEach(component => {
