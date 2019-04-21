@@ -4,7 +4,7 @@ import layout from 'octopus-ui/templates/components/ui-data-pager/pagination';
 
 export default Component.extend({
     layout,
-    
+
     tagName: '',
 
     pages: computed('count', 'itemsPerPage', function () {
@@ -36,19 +36,19 @@ export default Component.extend({
         })
     },
 
-    goToPreviousPage() {
-        if (this.isFirstPage) {
-            return;
-        }
+    goToFirstPage() {
+        this.set('page', 1);
+    },
 
+    goToLastPage() {
+        this.set('page', this.pages);
+    },
+
+    goToPreviousPage() {
         this.decrementProperty('page');
     },
 
     goToNextPage() {
-        if (this.isLastPage) {
-            return;
-        }
-
         this.incrementProperty('page');
     }
 });
