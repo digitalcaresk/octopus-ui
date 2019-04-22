@@ -5,15 +5,20 @@
             dateFormat=this.dateFormat
             time_24hr=true
             minDate=this.minDate
+            maxDate=this.maxDate
             mode=this.mode
             enable=this.enable
             disabled=this.disabled
             onChange=(action updateValue)
+            onDayCreate=(action onDayCreate)
+            getFlatpickrRef=(action setFlatpickr)
             classNames="form-control"}}
 
-    <div class="input-group-append">
-        <div class="input-group-text">
-            <i class="far fa-calendar-alt"></i>
+    {{#if this.icon}}
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <i class="far fa-calendar-alt"></i>
+            </div>
         </div>
-    </div>
+    {{/if}}
 </div>
