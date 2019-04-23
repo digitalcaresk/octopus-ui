@@ -6,6 +6,8 @@ import {isArray} from '@ember/array';
 export default Mixin.create({
     componentState: service(),
 
+    restoreState: true,
+
     init() {
         this._super(...arguments);
 
@@ -13,7 +15,7 @@ export default Mixin.create({
 
         let state = this.componentState.stateFor(this);
 
-        if (state) {
+        if (state && this.restoreState) {
             this.setProperties(state);
         }
     },
