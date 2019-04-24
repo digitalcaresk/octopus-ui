@@ -5,7 +5,7 @@
             {{yield (hash
                             column=(component "ui-data-table/column/header-cell")
                             sortableColumn=(component "ui-data-table/column/sortable-header-cell" sortedBy=sorter.sortBy sortDirection=sorter.sortDirection onSort=sorter.sortContent)
-                            selectableColumn=(component "ui-data-table/column/selectable-header-cell")
+                            selectableColumn=(component "ui-data-table/column/selectable-header-cell" rows=pager.content)
                     )}}
         </tr>
 

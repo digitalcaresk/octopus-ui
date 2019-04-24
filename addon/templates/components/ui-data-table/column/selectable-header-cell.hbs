@@ -1,4 +1,4 @@
 {{#ui-checkbox as |checkbox|}}
-    {{checkbox.input}}
+    {{checkbox.input checked=(readonly this.areAllSelected) onChange=(action toggleSelected)}}
     {{#checkbox.label}}&nbsp;{{/checkbox.label}}
 {{/ui-checkbox}}
