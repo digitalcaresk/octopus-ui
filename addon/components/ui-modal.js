@@ -11,6 +11,7 @@ export default Component.extend({
     modal: inject(),
     classNames: ['modal', 'fade'],
     backdrop: true,
+    scrollable: false,
 
     onClose() {
 

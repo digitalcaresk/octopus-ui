@@ -1,4 +1,4 @@
-<div class="modal-dialog {{size}}" role="document">
+<div class="modal-dialog {{if scrollable "modal-dialog-scrollable"}} {{size}}" role="document">
     <div class="modal-content">
         {{yield (hash header=(component "ui-modal/header") close=(component "ui-modal/close") body=(component "ui-modal/body") footer=(component "ui-modal/footer"))}}
     </div>
