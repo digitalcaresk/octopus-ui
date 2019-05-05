@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import {computed} from '@ember/object';
 import layout from '../templates/components/ui-date-input';
+import {isEmpty} from '@ember/utils';
 
 export default Component.extend({
     layout,
@@ -10,6 +11,7 @@ export default Component.extend({
     maxDate: null,
     disabled: false,
     autoOpen: false,
+    highlightWhenSelected: false,
     flatpickr: null,
     icon: true,
     mode: 'single',
@@ -33,6 +35,10 @@ export default Component.extend({
 
     dateFormat: computed('enableTime', function () {
         return this.enableTime ? 'H:i d.m.Y' : 'd.m.Y';
+    }),
+
+    shouldHighlight: computed('value', 'highlightWhenSelected', function () {
+        return this.highlightWhenSelected && !isEmpty(this.value);
     }),
 
     updateValue(selectedDates) {
