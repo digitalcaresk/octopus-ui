@@ -1,7 +1,7 @@
-import Component from '@ember/component';
+import Cell from './cell';
 import layout from 'octopus-ui/templates/components/ui-data-table/column/header-cell';
 
-export default Component.extend({
+export default Cell.extend({
     layout,
 
     tagName: 'th',

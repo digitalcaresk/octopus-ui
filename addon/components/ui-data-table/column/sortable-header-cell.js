@@ -6,10 +6,14 @@ export default HeaderCell.extend({
     layout,
 
     classNames: ['table-sortable'],
-    classNameBindings: ['isSortedBy:active'],
+    classNameBindings: ['sortingClass'],
 
     isSortedBy: computed('property', 'sortedBy', function () {
         return this.property === this.sortedBy;
+    }),
+
+    sortingClass: computed('isSortedBy', 'sortDirection', function() {
+        return this.isSortedBy ? `active ${this.sortDirection}` : null;
     }),
 
     onSort() {
