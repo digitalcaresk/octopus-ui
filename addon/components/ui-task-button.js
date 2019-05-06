@@ -15,6 +15,8 @@ export default UiButton.extend({
             this.task.perform();
 
             event.preventDefault();
+        } else {
+            this._super(event);
         }
     }
 });
