@@ -6,23 +6,23 @@
     <ul class="pagination mb-0">
         <li class="page-item">
             <button class="page-link" type="button" disabled={{this.isFirstPage}} {{action goToFirstPage}}>
-                <i class="far fa-angle-double-left"></i>
+                <i class="far fa-fw fa-arrow-to-left"></i>
             </button>
         </li>
         <li class="page-item">
             <button class="page-link" type="button" disabled={{this.isFirstPage}} {{action goToPreviousPage}}>
-                <i class="far fa-angle-left"></i>
+                <i class="far fa-fw fa-angle-left"></i>
             </button>
         </li>
         <li class="page-item">
             <button class="page-link" type="button" disabled={{this.isLastPage}} {{action goToNextPage}}>
-                <i class="far fa-angle-right"></i>
+                <i class="far fa-fw fa-angle-right"></i>
             </button>
         </li>
 
         <li class="page-item">
             <button class="page-link" type="button" disabled={{this.isLastPage}} {{action goToLastPage}}>
-                <i class="far fa-angle-double-right"></i>
+                <i class="far fa-fw fa-arrow-to-right"></i>
             </button>
         </li>
     </ul>
