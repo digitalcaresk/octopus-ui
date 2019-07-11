@@ -1,6 +1,4 @@
 import TextField from '@ember/component/text-field';
-import {observer} from '@ember/object';
-import {schedule} from '@ember/runloop';
 import {computed} from '@ember/object';
 
 export default TextField.extend({
@@ -23,9 +21,9 @@ export default TextField.extend({
         this.onKeyPress();
     },
 
-    valueObserver: observer('value', function () {
-        schedule('actions', this, function () {
-            this.onChange();
-        });
-    })
+    input() {
+        this._super(...arguments);
+
+        this.onChange(this.value);
+    }
 });
