@@ -6,6 +6,9 @@ export default Component.extend({
     layout,
 
     classNames: ['custom-control custom-switch'],
+    classNameBindings: ['inline:custom-control-inline'],
+
+    inline: false,
 
     switchId: computed('elementId', function() {
         return `${this.elementId}-switch`;

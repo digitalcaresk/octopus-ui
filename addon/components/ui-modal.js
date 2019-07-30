@@ -16,6 +16,9 @@ export default Component.extend({
     onClose() {
 
     },
+    onInsert() {
+
+    },
 
     close() {
         return new Promise(resolve => {
@@ -27,6 +30,8 @@ export default Component.extend({
 
     didInsertElement() {
         set(this, 'modal.currentModal', this);
+
+        this.onInsert(this);
 
         schedule('render', () => {
             this.$().modal({
