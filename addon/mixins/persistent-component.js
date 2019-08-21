@@ -7,6 +7,7 @@ export default Mixin.create({
     componentState: service(),
 
     restoreState: true,
+    componentNameSuffix: null,
 
     init() {
         this._super(...arguments);
@@ -24,10 +25,11 @@ export default Mixin.create({
         this.componentState.unregisterComponent(this);
     },
 
-    componentName: computed(function () {
-        let regex = this.toString().match(/<[a-zA-Z\-]+@[a-zA-Z]+:(?:[a-z]+[\/])*([-a-z]+)::[a-zA-Z]+[0-9]+>/);
+    componentName: computed('componentNameSuffix', function () {
+        let regex = this.toString().match(/<[a-zA-Z\-]+@[a-zA-Z]+:([-\/a-z]*)::[a-zA-Z]+[0-9]+>/),
+            componentNameSuffix = this.componentNameSuffix || '';
 
-        return regex[regex.length - 1];
+        return regex[regex.length - 1] + componentNameSuffix;
     }),
 
     serialize() {
