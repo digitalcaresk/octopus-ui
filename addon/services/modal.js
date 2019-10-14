@@ -1,19 +1,30 @@
 import Service from '@ember/service';
 import {get} from '@ember/object';
 import {Promise} from 'rsvp';
+import { isEmpty } from '@ember/utils';
 
 export default Service.extend({
-    currentModal: null,
+    stack: null,
+
+    init() {
+        this._super(...arguments);
+
+        this.set('stack', []);
+    },
+
+    addToStack(modal) {
+        this.stack.addObject(modal);
+    },
 
     close() {
-        let modal = get(this, 'currentModal');
+        let stack = this.stack;
 
         return new Promise(resolve => {
-            if (!modal) {
+            if (isEmpty(stack)) {
                 return resolve();
             }
 
-            modal.close().then(() => {
+            stack.lastObject.close().then(() => {
                 resolve()
             });
         });

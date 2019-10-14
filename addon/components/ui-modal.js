@@ -8,39 +8,14 @@ import layout from '../templates/components/ui-modal';
 export default Component.extend({
     layout,
 
-    modal: inject(),
-    classNames: ['modal', 'fade'],
-    backdrop: true,
+    tagName: '',
+
     scrollable: false,
 
     onClose() {
 
     },
     onInsert() {
-
-    },
-
-    close() {
-        return new Promise(resolve => {
-            return this.$().on('hidden.bs.modal', function() {
-                resolve();
-            }).modal('hide');
-        });
-    },
-
-    didInsertElement() {
-        set(this, 'modal.currentModal', this);
-
-        this.onInsert(this);
-
-        schedule('render', () => {
-            this.$().modal({
-                backdrop: get(this, 'backdrop')
-            }).on('hidden.bs.modal', () => {
-                set(this, 'modal.currentModal', null);
-
-                get(this, 'onClose')();
-            });
-        });
-    },
+        
+    }
 });
